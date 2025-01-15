@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div th:replace="fragments/header :: header">
+    &lt;!&ndash; ============================================================================ &ndash;&gt;
+    &lt;!&ndash; This content is only used for static prototyping purposes (natural templates)&ndash;&gt;
+    &lt;!&ndash; and is therefore entirely optional, as this markup fragment will be included &ndash;&gt;
+    &lt;!&ndash; from "fragments/header.html" at runtime.                                     &ndash;&gt;
+    &lt;!&ndash; ============================================================================ &ndash;&gt;
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Static header</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="hero-unit">
+        <h1>SCC</h1>
+        <p>
+            Appointments POC
+        </p>
+    </div>
+   <div th:replace="fragments/footer :: footer">&copy; 2025 Guidewire</div>
+</div>
+</body>
+</html>
