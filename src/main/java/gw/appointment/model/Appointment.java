@@ -1,4 +1,4 @@
-package gw.appointment.entity;
+package gw.appointment.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

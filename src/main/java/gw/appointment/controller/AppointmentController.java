@@ -1,18 +1,15 @@
 package gw.appointment.controller;
 
-import gw.appointment.entity.Appointment;
-import gw.appointment.repository.AppointmentRepository;
+import gw.appointment.model.Appointment;
+import gw.appointment.dao.AppointmentRepository;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.List;
-import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
