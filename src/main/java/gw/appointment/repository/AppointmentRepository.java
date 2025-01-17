@@ -1,6 +1,6 @@
-package gw.appointment.dao;
+package gw.appointment.repository;
 
-import gw.appointment.model.Appointment;
+import gw.appointment.entity.Appointment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

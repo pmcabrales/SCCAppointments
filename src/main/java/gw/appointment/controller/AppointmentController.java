@@ -1,7 +1,7 @@
 package gw.appointment.controller;
 
-import gw.appointment.model.Appointment;
-import gw.appointment.dao.AppointmentRepository;
+import gw.appointment.entity.Appointment;
+import gw.appointment.repository.AppointmentRepository;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,7 @@
 package gw.appointment.config;
 
-import gw.appointment.model.Appointment;
-import gw.appointment.dao.AppointmentRepository;
+import gw.appointment.entity.Appointment;
+import gw.appointment.repository.AppointmentRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

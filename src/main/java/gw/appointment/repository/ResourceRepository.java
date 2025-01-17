@@ -1,6 +1,6 @@
-package gw.appointment.dao;
+package gw.appointment.repository;
 
-import gw.appointment.model.Resource;
+import gw.appointment.entity.Resource;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ResourceRepository extends JpaRepository<Resource, Long> {

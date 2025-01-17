@@ -1,13 +1,11 @@
 package gw.appointment.controller;
 
-import gw.appointment.dao.AppointmentRepository;
-import gw.appointment.dao.ResourceRepository;
-import gw.appointment.model.Resource;
+import gw.appointment.repository.ResourceRepository;
+import gw.appointment.entity.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class ResourceController {
