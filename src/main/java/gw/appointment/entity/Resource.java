@@ -2,6 +2,8 @@ package gw.appointment.entity;
 
 import jakarta.persistence.*;
 
+import java.util.*;
+
 @Entity
 public class Resource {
 
@@ -9,7 +11,15 @@ public class Resource {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String email;
-    private String skills;
+    @ElementCollection
+    @CollectionTable(name = "skills", joinColumns = @JoinColumn(name = "resource_id"))
+    private Set<String> skills = new HashSet<>();
+
+    @ElementCollection
+    @CollectionTable(name = "availability", joinColumns = @JoinColumn(name = "resource_id"))
+    @MapKeyColumn(name = "date")
+    @Column(name = "availability_hours")
+    private Map<Date, Integer> availability = new HashMap<>();
 
     // Getters and setters
     public Long getId() {
@@ -28,11 +38,11 @@ public class Resource {
         this.email = email;
     }
 
-    public String getSkills() {
+    public Set<String> getSkills() {
         return skills;
     }
 
-    public void setSkills(String skills) {
+    public void setSkills(Set<String> skills) {
         this.skills = skills;
     }
 

@@ -12,7 +12,8 @@ public class HomeController {
 
     @GetMapping("/")
     public String showHome(Model model) {
-        return "home";
+        model.addAttribute("contentFragment", "home");
+        return "layout";
     }
 
 }
