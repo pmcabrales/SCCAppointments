@@ -23,6 +23,14 @@ public class ResourceController {
         this.resourceRepository = resourceRepository;
     }
 
+    @GetMapping("/resourceList")
+    public String showResourceList(Model model) {
+        List<Resource> resources = resourceRepository.findAll();
+        model.addAttribute("resources", resources);
+        model.addAttribute("contentFragment", "resources/resource_list");
+        return "layout";
+    }
+
     @GetMapping("/registerResource")
     public String showForm(Model model) {
         List<Skill> skills = skillRepository.findAll();
@@ -37,8 +45,9 @@ public class ResourceController {
     public String submitForm(Resource resource, Model model) {
         resourceRepository.save(resource);
         model.addAttribute("message", "Resource registered successfully!");
-
-        model.addAttribute("contentFragment", "resources/resource_register");
+        List<Resource> resources = resourceRepository.findAll();
+        model.addAttribute("resources", resources);
+        model.addAttribute("contentFragment", "resources/resource_list");
         return "layout";
     }
 }

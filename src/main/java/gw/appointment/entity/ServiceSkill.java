@@ -1,9 +1,6 @@
 package gw.appointment.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,12 +13,18 @@ import org.springframework.stereotype.Component;
 @Getter
 @Setter
 @Component
-public class Skill {
-
+public class ServiceSkill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @ManyToOne
+    @JoinColumn(name = "service_id")
+    private Service service;
 
+    @ManyToOne
+    @JoinColumn(name = "skill_id")
+    private Skill skill;
+
+    private Integer hours;
 }

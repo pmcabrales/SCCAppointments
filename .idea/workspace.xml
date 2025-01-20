@@ -5,7 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ea3ae1e-316d-4baf-93bf-ea9acc37fc2f" name="Changes" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/gw/appointment/controller/ServiceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gw/appointment/entity/Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/gw/appointment/entity/ServiceSkill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/resources/resource_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/services/service-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/services/services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gw/appointment/config/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gw/appointment/config/DataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gw/appointment/controller/EssentialServiceController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gw/appointment/controller/ResourceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gw/appointment/controller/ResourceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gw/appointment/entity/EssentialService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gw/appointment/entity/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gw/appointment/entity/Resource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gw/appointment/entity/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gw/appointment/entity/Skill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gw/appointment/repository/EssentialServiceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gw/appointment/repository/ServiceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/resources/resource_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/resources/resource_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/sidebar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +34,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -51,7 +68,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/Users/pmartnezcabrales/Documents/Essential Services/SCCAppointments/src/main/resources/static/js",
+    "last_opened_file_path": "/Users/pmartnezcabrales/Documents/Essential Services/SCCAppointments/src/main/resources/templates/services",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
@@ -63,11 +80,11 @@
       <recent name="gw.appointment.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/services" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/css" />
       <recent name="$PROJECT_DIR$/src/main/resources/static/js" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/appointments" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
-      <recent name="$PROJECT_DIR$/src/main/resources/static" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/static/js" />
@@ -135,5 +152,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gw/appointment/controller/ResourceController.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

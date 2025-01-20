@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="content">
+<div class="container mt-5">
+  <h1 class="mb-4">Resource List</h1>
+  <div th:if="${message}" class="alert alert-success mt-3" th:text="${message}"></div>
+  <!-- Button to register a new resource -->
+  <div class="mb-3">
+    <a class="btn btn-primary" th:href="@{/registerResource}">Add Resource</a>
+  </div>
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Skills</th>
+      <th>Availability</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="resource, iterStat : ${resources}">
+      <td th:text="${resource.fullName}"></td>
+      <td th:text="${resource.email}"></td>
+      <td>
+        <ul>
+          <li th:each="skill : ${resource.skills}" th:text="${skill}"></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li th:each="entry : ${resource.availability}" th:text="${entry.key + ': ' + entry.value + '%'}"></li>
+        </ul>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</body>
+</html>

@@ -2,12 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
 <div th:fragment="content">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 <div class="container mt-5">
   <h1 class="mb-4">Register Resource</h1>
   <form th:action="@{/registerResource}" th:object="${resource}" method="post">
     <div class="mb-3">
+      <label for="fullName" class="form-label">Name</label>
+      <input class="form-control" id="fullName" th:field="*{fullName}" placeholder="Enter resource name" required>
+    </div>
+
+    <div class="mb-3">
       <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Enter your email" required>
+      <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Enter resource email" required>
     </div>
 
     <div class="mb-3">
@@ -18,12 +26,39 @@
       <small class="form-text text-muted">Use Ctrl (Windows) or Cmd (Mac) to select multiple skills.</small>
     </div>
 
+    <div class="mb-3">
+      <input type="text" name="daterange" value="" />
+    </div>
+
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Hours</th>
+      </tr>
+      </thead>
+      <tbody name="availabilityTable">
+      </tbody>
+    </table>
+
 
     <button type="submit" class="btn btn-primary">Register</button>
   </form>
 
-  <div th:if="${message}" class="alert alert-success mt-3" th:text="${message}"></div>
+
 </div>
+
+  <script>
+$(function() {
+  $('input[name="daterange"]').daterangepicker({
+    opens: 'right'
+  }, function(start, end, label) {
+    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+    var dates = '<td>' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + '</td>';
+    $('tbody[name="availabilityTable"]').append('<tr>').append(dates).append('<td>8</td></tr>');
+  });
+});
+</script>
 
 </div>
 </body>

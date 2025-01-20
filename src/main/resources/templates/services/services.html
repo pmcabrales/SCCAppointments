@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="content">
+  <div class="container mt-5">
+    <h1 class="mb-4">Essential Services List</h1>
+    <div class="mb-3">
+      <a class="btn btn-primary" th:href="@{/services/new}">Add New Service</a>
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Skills</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="service, iterStat : ${services}">
+        <td th:text="${iterStat.count}"></td>
+        <td th:text="${service.name}"></td>
+        <td>
+          <ul>
+            <li th:each="entry : ${service.skills}"
+                th:text="${entry.key.name + ': ' + entry.value + ' hours'}">
+            </li>
+          </ul>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

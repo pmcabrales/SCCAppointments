@@ -11,6 +11,8 @@ public class Resource {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String email;
+    private String fullName;
+
     @ElementCollection
     @CollectionTable(name = "skills", joinColumns = @JoinColumn(name = "resource_id"))
     private Set<String> skills = new HashSet<>();
@@ -20,6 +22,9 @@ public class Resource {
     @MapKeyColumn(name = "date")
     @Column(name = "availability_hours")
     private Map<Date, Integer> availability = new HashMap<>();
+
+    public Resource() {
+    }
 
     // Getters and setters
     public Long getId() {
@@ -38,6 +43,14 @@ public class Resource {
         this.email = email;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
     public Set<String> getSkills() {
         return skills;
     }
@@ -46,5 +59,11 @@ public class Resource {
         this.skills = skills;
     }
 
+    public Map<Date, Integer> getAvailability() {
+        return availability;
+    }
 
+    public void setAvailability(Map<Date, Integer> availability) {
+        this.availability = availability;
+    }
 }
