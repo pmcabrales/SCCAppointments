@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ea3ae1e-316d-4baf-93bf-ea9acc37fc2f" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/gw/appointment/controller/CalendarController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/fullcalendar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/fullcalendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/appointments/calendar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/resources/resource_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/resources/resource_register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/topnav.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/topnav.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
