@@ -5,16 +5,15 @@ import gw.appointment.repository.AppointmentRepository;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
+@Controller
+@RequestMapping("/appointments")
 public class AppointmentController {
 
     private final AppointmentRepository appointmentRepository;
@@ -23,7 +22,7 @@ public class AppointmentController {
         this.appointmentRepository = appointmentRepository;
     }
 
-    @GetMapping("/appointments")
+    @GetMapping()
     public List<Appointment> getAppointments() {
         return appointmentRepository.findAll();
     }
@@ -38,5 +37,11 @@ public class AppointmentController {
         appointmentRepository.save(registerAppointment);
 
         return new ResponseEntity<Appointment>(registerAppointment,HttpStatus.CREATED);
+    }
+
+    @GetMapping("/appointment")
+    public String showHome(Model model) {
+        model.addAttribute("contentFragment", "appointments/appointment");
+        return "layout";
     }
 }
