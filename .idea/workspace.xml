@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5ea3ae1e-316d-4baf-93bf-ea9acc37fc2f" name="Changes" comment="first commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gw/appointment/controller/ResourceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gw/appointment/controller/ResourceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/resources/resource_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/resources/resources.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/resources/resource_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/resources/resource-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gw/appointment/controller/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gw/appointment/controller/ServiceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/services/service-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/services/service-form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/sidebar.html" afterDir="false" />
     </list>
@@ -150,6 +149,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/gw/appointment/controller/ResourceController.java</url>
           <line>29</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/gw/appointment/controller/ServiceController.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

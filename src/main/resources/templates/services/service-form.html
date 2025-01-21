@@ -5,16 +5,12 @@
 
 <div class="container mt-5">
   <h1 class="mb-4">Import New Service</h1>
-
-  <form th:action="@{/services}" method="post">
+  <form th:action="@{/services/import}" th:object="${file}" method="post" enctype="multipart/form-data">
     <div class="mb-3">
-      <label for="name" class="form-label">Service Name</label>
-      <input type="text" id="name" name="name" class="form-control" required>
+      <label for="formFile" class="form-label">Choose a file to import</label>
+      <input class="form-control" type="file" id="formFile" name="file" />
     </div>
-    <div id="skills-container"></div>
-    <button type="button" class="btn btn-secondary mb-3" onclick="addSkillField()">Add Skill</button>
-    <button type="submit" class="btn btn-success">Save</button>
-    <a th:href="@{/services}" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-primary">Import</button>
   </form>
 
 

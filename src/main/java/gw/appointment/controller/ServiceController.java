@@ -41,17 +41,10 @@ public class ServiceController {
         return "layout";
     }
 
-    @PostMapping
-    public String saveService(Service service, @RequestParam Map<Long, Integer> skillHours, Model model) {
-        for (Map.Entry<Long, Integer> entry : skillHours.entrySet()) {
-            Skill skill = skillRepository.findById(entry.getKey()).orElseThrow();
-            ServiceSkill serviceSkill = new ServiceSkill();
-            serviceSkill.setService(service);
-            serviceSkill.setSkill(skill);
-            serviceSkill.setHours(entry.getValue());
-            service.getSkills().add(serviceSkill);
-        }
-        serviceRepository.save(service);
+    @PostMapping("/import")
+    public String importService(Service service, @RequestParam Map<Long, Integer> skillHours, Model model) {
+        //TODO: parse the service spreadsheet
+        //serviceRepository.save(service);
 
         model.addAttribute("contentFragment", "services/services");
         return "layout";
