@@ -21,7 +21,7 @@
     <div class="mb-3">
       <label for="skills" class="form-label">Skills</label>
       <select class="form-select" id="skills" name="skills" th:field="*{skills}" multiple>
-        <option th:each="skill : ${skillsList}" th:value="${skill.skillID}" th:text="${skill.skillName}"></option>
+        <option th:each="skill : ${skillsList}" th:value="${skill.id}" th:text="${skill.name}"></option>
       </select>
       <small class="form-text text-muted">Use Ctrl (Windows) or Cmd (Mac) to select multiple skills.</small>
     </div>

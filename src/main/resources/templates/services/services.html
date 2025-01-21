@@ -7,7 +7,7 @@
   <div class="container mt-5">
     <h1 class="mb-4">Essential Services List</h1>
     <div class="mb-3">
-      <a class="btn btn-primary" th:href="@{/services/new}">Add New Service</a>
+      <a class="btn btn-primary" th:href="@{/services/new}">Import Service</a>
     </div>
     <table class="table table-bordered table-striped">
       <thead>
@@ -24,7 +24,7 @@
         <td>
           <ul>
             <li th:each="entry : ${service.skills}"
-                th:text="${entry.key.name + ': ' + entry.value + ' hours'}">
+                th:text="${entry.skill.name + ': ' + entry.hours + ' hours'}">
             </li>
           </ul>
         </td>
