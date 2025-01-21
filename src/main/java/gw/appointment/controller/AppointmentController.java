@@ -1,13 +1,7 @@
 package gw.appointment.controller;
 
-import gw.appointment.entity.Appointment;
-import gw.appointment.entity.Service;
-import gw.appointment.entity.Resource;
-import gw.appointment.entity.Skill;
-import gw.appointment.repository.AppointmentRepository;
-import gw.appointment.repository.ServiceRepository;
-import gw.appointment.repository.ServiceSkillRepository;
-import gw.appointment.repository.SkillRepository;
+import gw.appointment.entity.*;
+import gw.appointment.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -16,12 +10,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.thymeleaf.util.DateUtils;
 
 @Controller
 public class AppointmentController {
@@ -29,6 +28,9 @@ public class AppointmentController {
     private final AppointmentRepository appointmentRepository;
     @Autowired
     private ServiceRepository serviceRepository;
+
+    @Autowired
+    private ResourceRepository resourceRepository;
 
     public AppointmentController(AppointmentRepository appointmentRepository){
         this.appointmentRepository = appointmentRepository;
@@ -47,9 +49,22 @@ public class AppointmentController {
     @PostMapping("/requestAppointment")
     public String submitForm(Appointment appointment, Model model) {
         appointmentRepository.save(appointment);
-        model.addAttribute("message", "Appointment registered successfully!");
+        //model.addAttribute("message", "Appointment registered successfully!");
+        model.addAttribute("contentFragment", "appointments/appointment_confirmation");
+        //model.addAttribute("resources", resourceRepository.findAll());
+        //TODO devolve opciones con fechas
 
-        model.addAttribute("contentFragment", "appointments/appointment_request");
+/*        List<Resource> resourceList = resourceRepository.findAll();
+        resourceList.stream().map(r -> {
+
+        });*/
+
+        List<DateRange> optionsList = new ArrayList<>();
+        optionsList.add(new DateRange(LocalDate.of(2025, 2, 1),LocalDate.of(2025, 2, 7)));
+        optionsList.add(new DateRange(LocalDate.of(2025, 2, 14),LocalDate.of(2025, 2, 21)));
+        optionsList.add(new DateRange(LocalDate.of(2025, 3, 2),LocalDate.of(2025, 3, 15)));
+        model.addAttribute("optionsList", optionsList);
+
         return "layout";
     }
 
