@@ -40,7 +40,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadAppointments() {
-        appointmentRepository.save(new Appointment(1,LocalDateTime.of(LocalDate.of(2025,1,16), LocalTime.of(12,30)),"Test Appointment"));
+        //appointmentRepository.save(new Appointment(1,LocalDateTime.of(LocalDate.of(2025,1,16), LocalTime.of(12,30)),"Test Appointment"));
     }
 
     private void loadServices(){
