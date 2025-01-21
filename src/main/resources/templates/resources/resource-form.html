@@ -7,7 +7,7 @@
 
 <div class="container mt-5">
   <h1 class="mb-4">Register Resource</h1>
-  <form th:action="@{/registerResource}" th:object="${resource}" method="post">
+  <form th:action="@{/resources/new}" th:object="${resource}" method="post">
     <div class="mb-3">
       <label for="fullName" class="form-label">Name</label>
       <input class="form-control" id="fullName" th:field="*{fullName}" placeholder="Enter resource name" required>

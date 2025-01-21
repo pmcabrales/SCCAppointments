@@ -9,7 +9,7 @@
   <div th:if="${message}" class="alert alert-success mt-3" th:text="${message}"></div>
   <!-- Button to register a new resource -->
   <div class="mb-3">
-    <a class="btn btn-primary" th:href="@{/registerResource}">Add Resource</a>
+    <a class="btn btn-primary" th:href="@{/resources/new}">Add Resource</a>
   </div>
   <table class="table table-bordered table-striped">
     <thead>
@@ -26,7 +26,7 @@
       <td th:text="${resource.email}"></td>
       <td>
         <ul>
-          <li th:each="skill : ${resource.skills}" th:text="${skill}"></li>
+          <li th:each="skill : ${resource.skills}" th:text="${skill.name}"></li>
         </ul>
       </td>
       <td>
