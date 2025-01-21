@@ -1,10 +1,13 @@
 package gw.appointment.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.util.*;
 
 @Entity
+@AllArgsConstructor
 public class Resource {
 
     @Id
@@ -15,7 +18,7 @@ public class Resource {
 
     @ElementCollection
     @CollectionTable(name = "skills", joinColumns = @JoinColumn(name = "resource_id"))
-    private Set<String> skills = new HashSet<>();
+    private Set<Skill> skills = new HashSet<>();
 
     @ElementCollection
     @CollectionTable(name = "availability", joinColumns = @JoinColumn(name = "resource_id"))
@@ -51,11 +54,11 @@ public class Resource {
         this.fullName = fullName;
     }
 
-    public Set<String> getSkills() {
+    public Set<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(Set<String> skills) {
+    public void setSkills(Set<Skill> skills) {
         this.skills = skills;
     }
 

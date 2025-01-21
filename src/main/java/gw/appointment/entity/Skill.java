@@ -17,11 +17,14 @@ import org.springframework.stereotype.Component;
 @Setter
 @Component
 public class Skill {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
+
+    public String toString(){
+        return this.name;
+    }
 
 }

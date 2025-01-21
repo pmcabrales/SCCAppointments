@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="content">
+    <div class="container mt-5">
+        <h1 class="mb-4">Request Appointment</h1>
+        <form th:action="@{/requestAppointment}" th:object="${appointment}" method="post">
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-control" id="description" th:field="*{description}" placeholder="Enter your description" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="startDate" class="form-label">Start Date</label>
+                <input type="date" class="form-control" id="startDate" th:field="*{startDate}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="endDate" class="form-label">End Date</label>
+                <input type="date" class="form-control" id="endDate" th:field="*{endDate}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="services" class="form-label">Essential Service</label>
+                <select class="form-select" id="services" name="services" th:field="*{services}">
+                    <option th:each="service : ${servicesList}" th:value="${service.Id}" th:text="${service.name}"></option>
+                </select>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Request</button>
+        </form>
+
+        <div th:if="${message}" class="alert alert-success mt-3" th:text="${message}"></div>
+    </div>
+
+</div>
+</body>
+</html>
