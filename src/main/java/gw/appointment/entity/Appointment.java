@@ -30,8 +30,7 @@ public class Appointment {
 
     private String description;
 
-    @ElementCollection
-    @CollectionTable(name = "appointmentService", joinColumns = @JoinColumn(name = "service_id"))
+    @OneToMany(mappedBy = "appointment", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Service> services = new HashSet<>();
 
 }

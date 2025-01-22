@@ -44,11 +44,11 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadServices(){
-        Service service = serviceRepository.save(new Service(1L, "GWCP Observability", new HashSet<>()));
+        Service service = serviceRepository.save(new Service(1L, "GWCP Observability", new HashSet<>(), null));
         service.getSkills().add(new ServiceSkill(1L,service, skillRepository.getReferenceById(1L), 40));
         serviceRepository.save(service);
 
-        service = serviceRepository.save(new Service(2L, "Performance Diagnostics", new HashSet<>()));
+        service = serviceRepository.save(new Service(2L, "Performance Diagnostics", new HashSet<>(), null));
         service.getSkills().add(new ServiceSkill(2L,service, skillRepository.getReferenceById(1L), 16));
         serviceRepository.save(service);
         service.getSkills().add(new ServiceSkill(3L,service, skillRepository.getReferenceById(2L), 80));
@@ -56,13 +56,13 @@ public class DataLoader implements CommandLineRunner {
         service.getSkills().add(new ServiceSkill(4L,service, skillRepository.getReferenceById(3L), 20));
         serviceRepository.save(service);
 
-        service = serviceRepository.save(new Service(3L, "Platform Health Review", new HashSet<>()));
+        service = serviceRepository.save(new Service(3L, "Platform Health Review", new HashSet<>(), null));
         service.getSkills().add(new ServiceSkill(5L,service, skillRepository.getReferenceById(4L), 100));
         serviceRepository.save(service);
         service.getSkills().add(new ServiceSkill(6L,service, skillRepository.getReferenceById(5L), 20));
         serviceRepository.save(service);
 
-        service = serviceRepository.save(new Service(4L, "Production Transition Enablement", new HashSet<>()));
+        service = serviceRepository.save(new Service(4L, "Production Transition Enablement", new HashSet<>(), null));
         service.getSkills().add(new ServiceSkill(7L,service, skillRepository.getReferenceById(6L), 40));
         serviceRepository.save(service);
         service.getSkills().add(new ServiceSkill(8L,service, skillRepository.getReferenceById(7L), 8));

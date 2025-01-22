@@ -27,4 +27,8 @@ public class Service {
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ServiceSkill> skills = new HashSet<>();
 
+    @ManyToOne
+    @JoinColumn(name = "appointment_id")
+    private Appointment appointment;
+
 }

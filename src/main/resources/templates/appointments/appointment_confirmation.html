@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="content">
+    <div class="container mt-5">
+        <h1 class="mb-4">Resource List</h1>
+        <div th:if="${message}" class="alert alert-success mt-3" th:text="${message}"></div>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Option #</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="option, iterStat : ${optionsList}">
+                <td th:text="${iterStat.index}"></td>
+                <td th:text="${option.startDate}"></td>
+                <td th:text="${option.endDate}"></td>
+                <td>
+                    <a class="btn btn-primary">Select</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

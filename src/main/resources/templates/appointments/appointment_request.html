@@ -11,14 +11,18 @@
                 <input type="text" class="form-control" id="description" th:field="*{description}" placeholder="Enter your description" required>
             </div>
 
-            <div class="mb-3">
+            <label>
+                <input type="checkbox" name="showDates"
+                       onClick="showMe('sDate')">Choose earliest dates available</label>
+
+            <div class="mb-3" id="sDate" style="display:none">
                 <label for="startDate" class="form-label">Start Date</label>
                 <input type="date" class="form-control" id="startDate" th:field="*{startDate}" required>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3" style="display:none">
                 <label for="endDate" class="form-label">End Date</label>
-                <input type="date" class="form-control" id="endDate" th:field="*{endDate}" required>
+                <input type="date" class="form-control" id="endDate" th:field="*{endDate}">
             </div>
 
             <div class="mb-3">
@@ -36,5 +40,19 @@
     </div>
 
 </div>
+<script type="text/javascript">
+function showMe (box) {
+
+    var chboxs = document.getElementsByName("showDates");
+    var vis = "none";
+    for(var i=0;i<chboxs.length;i++) {
+        if(chboxs[i].checked){
+         vis = "block";
+            break;
+        }
+    }
+    document.getElementById(box).style.display = vis;
+}
+        </script>
 </body>
 </html>
