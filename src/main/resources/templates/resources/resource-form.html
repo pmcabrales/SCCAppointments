@@ -7,7 +7,7 @@
 
 <div class="container mt-5">
   <h1 class="mb-4">Register Resource</h1>
-  <form th:action="@{/resources/new}" th:object="${resource}" method="post">
+  <form th:action="@{/resources/new}" th:object="${resource}" method="post" onsubmit="handleTableFormSubmit(event)">
     <div class="mb-3">
       <label for="fullName" class="form-label">Name</label>
       <input class="form-control" id="fullName" th:field="*{fullName}" placeholder="Enter resource name" required>
@@ -26,14 +26,17 @@
       <small class="form-text text-muted">Use Ctrl (Windows) or Cmd (Mac) to select multiple skills.</small>
     </div>
 
+    <input type="hidden" class="form-select" id="availabilities" name="availabilities" th:field="*{availabilities}">
+
     <div class="mb-3">
       <input type="text" name="daterange" value="" />
     </div>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped" id="date-range-table">
       <thead>
       <tr>
-        <th>Date</th>
+        <th>Start Date</th>
+        <th>End Date</th>
         <th>Hours</th>
       </tr>
       </thead>
@@ -54,10 +57,62 @@ $(function() {
     opens: 'right'
   }, function(start, end, label) {
     console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-    var dates = '<td>' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + '</td>';
-    $('tbody[name="availabilityTable"]').append('<tr>').append(dates).append('<td>8</td></tr>');
+    var dates = '<tr><td class="start-date">' + start.format('YYYY-MM-DD') + '</td>';
+    dates = dates + '<td class="end-date">' + end.format('YYYY-MM-DD') + '</td>';
+    dates = dates + '<td class="hours">8</td></tr>';
+    $('tbody[name="availabilityTable"]').append(dates);
   });
 });
+
+
+function convertTableRangesToAvailabilityMap() {
+    // Seleccionar la tabla con los rangos de fechas
+    const table = document.getElementById('date-range-table');
+    const rows = table.querySelectorAll('tr'); // Selecciona todas las filas de la tabla
+
+    // Inicializar el mapa de disponibilidad
+    const availabilityMap = {};
+
+    rows.forEach(row => {
+        // Obtener las celdas relevantes de la fila
+        const startDate = row.querySelector('.start-date')?.textContent.trim();
+        const endDate = row.querySelector('.end-date')?.textContent.trim();
+        const hours = row.querySelector('.hours')?.textContent.trim();
+
+        if (startDate && endDate && hours) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            let currentDate = new Date(start);
+
+            // Iterar a través de todas las fechas en el rango
+            while (currentDate <= end) {
+                const formattedDate = currentDate.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+                availabilityMap[formattedDate] = parseInt(hours, 10);
+                currentDate.setDate(currentDate.getDate() + 1); // Incrementar la fecha en 1
+            }
+        }
+    });
+
+    return availabilityMap;
+}
+
+// Adjuntar el mapa de disponibilidad al formulario
+function handleTableFormSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const availabilityMap = convertTableRangesToAvailabilityMap();
+
+    // Crear un campo de entrada oculto para el mapa de disponibilidad
+    const hiddenInput = document.getElementById('availabilities');
+    hiddenInput.value = JSON.stringify(availabilityMap);
+
+    // Enviar el formulario
+    form.submit();
+}
+
+
+
 </script>
 
 </div>

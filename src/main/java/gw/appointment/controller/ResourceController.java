@@ -1,5 +1,7 @@
 package gw.appointment.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import gw.appointment.entity.Skill;
 import gw.appointment.repository.ResourceRepository;
 import gw.appointment.entity.Resource;
@@ -7,11 +9,11 @@ import gw.appointment.repository.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @Controller
 @RequestMapping("/resources")
@@ -44,9 +46,32 @@ public class ResourceController {
     }
 
     @PostMapping("/new")
-    public String submitForm(Resource resource, Model model) {
+    public String submitForm(@RequestParam String fullName,
+                             @RequestParam String email,
+                             @RequestParam String availabilities,
+                             @RequestParam Set<String> skills,  Model model) throws Exception {
+
+        Resource resource = new Resource();
+        resource.setFullName(fullName);
+        resource.setEmail(email);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        // Convert JSON string to Map<LocalDate, Integer>
+        Map<String, Integer> availabilityMap = objectMapper.readValue(
+                availabilities, new TypeReference<Map<String, Integer>>() {});
+        availabilityMap.forEach((date, hours) ->  resource.addAvailability(LocalDate.parse(date), hours));
+
+        // Process skills
+        Set<Skill> resourceSkills = new HashSet<>();
+        for (String skillName : skills) {
+            Skill skill = skillRepository.findById(Long.parseLong(skillName)).orElseThrow(Exception::new);
+            resourceSkills.add(skill);
+        }
+        resource.setSkills(resourceSkills);
+
+        // Save resource
         resourceRepository.save(resource);
-        model.addAttribute("message", "Resource registered successfully!");
+
         List<Resource> resources = resourceRepository.findAll();
         model.addAttribute("resources", resources);
         model.addAttribute("contentFragment", "resources/resources");

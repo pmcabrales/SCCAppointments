@@ -31,7 +31,7 @@
       </td>
       <td>
         <ul>
-          <li th:each="entry : ${resource.availability}" th:text="${entry.key + ': ' + entry.value + '%'}"></li>
+          <li th:each="availability : ${resource.availabilities}" th:text="${availability.date + ': ' + availability.hours + ' hours'}"></li>
         </ul>
       </td>
     </tr>
